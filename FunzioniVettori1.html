@@ -1,0 +1,69 @@
+///Prova di alcune funzioni: CARICA VETTORE , VISUALIZZA VETTORE, RICERCA SEQUENZIALE, SOMMA TRA DUE VETTORI
+
+#include<iostream>
+#define N 5
+using namespace std;
+
+void carica(int vett1[], int N1);
+void visualizza(int vett1[], int N1);
+void ricerca_seq(int vett1[], int N1);
+void somma(int vett1[],int vett2[],int s1[],int N1);
+
+int main(){
+    int vett[N],arr[N],s[N];
+    int x;
+
+    ///CHIAMATA FUNZIONE
+    carica(vett,N);
+    visualizza(vett,N);
+
+    carica(arr,N);
+    visualizza(arr,N);
+
+    somma(vett,arr,s,N);
+    cout<<endl<<"Visualizza somma"<<endl;
+    visualizza(s,N);
+
+    ///CHIAMATA RICERCA SEQUENZIALE SU SOMMA
+    ricerca_seq(s,N);
+
+    return 0;
+    }
+
+void carica(int vett1[], int N1){
+    cout<<"Carica il vettore:"<<endl;
+       ///caricamento
+       for(int i=0; i<N1; i++){
+        cin>>vett1[i];
+        }
+}
+void visualizza(int vett1[], int N1){
+    cout<<"Il vettore inserito e':"<<endl;
+       for(int i=0; i<N1; i++){
+        cout<<vett1[i]<<" ";
+       }
+    cout<<endl;
+}
+void somma(int vett1[],int vett2[],int s1[],int N1){
+     for(int i=0; i<N1; i++){
+            s1[i]=vett1[i]+vett2[i];
+     }
+}
+void ricerca_seq(int vett1[], int N1){
+     int x1;
+     cout<<"Scrivi il numero di cui vuoi sapere la posizione"<<endl;
+     cin>>x1;
+     int i=0;
+     bool trovato=false;
+        do{
+            if(vett1[i]==x1)
+              trovato=true;
+              else
+                i++;
+        }while(i<N1 && trovato==false);
+
+        if(trovato==false)
+            cout<<"Il numero "<<x1<<" non e' stato trovato"<<endl;
+            else
+              cout<<"Il numero "<<x1<<" e' nella posizione: "<<i<<endl;
+}
