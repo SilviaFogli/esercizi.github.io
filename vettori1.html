@@ -1,0 +1,87 @@
+///Carico vettore da tastiera, calcolo la somma, la media, max, min degli elementi,
+/// massimo dei negativi e minimo dei positivi.
+
+#include <iostream>
+#define N 5
+using namespace std;
+int main(){
+    int v[N];
+    // caricamento da tastiera
+    cout<<"Caricamento vettore"<<endl;
+    for (int I=0;I<N;I++)
+        cin>>v[I];
+    //Visualizzazione vettore
+    cout<<"Visualizzazione vettore"<<endl;
+    for (int I=0;I<N;I++)
+        cout<<v[I]<<" ";;
+    cout<<endl<<"Calcolo somma elementi vettore"<<endl;
+    int s=0;
+    for (int I=0;I<N;I++)
+        s+=v[I];
+    cout<<"Somma= "<<s<<endl;
+    cout<<"Media= "<<float(s)/float(N)<<endl;
+    cout<<"Calcolo massimo e minimo "<<endl;
+    int mass=v[0];
+    int imass=0;
+    int mini=v[0];
+    int imini=0;
+    for (int I=1;I<N;I++){
+         if(v[I]<mini){
+            mini=v[I];
+            imini=I;
+         }
+         if (v[I]>mass){
+            mass=v[I];
+            imass=I;
+         }
+    }
+    cout<<"Minimo= "<<mini<<", nella posizione "<<imini<<endl;
+    cout<<"Massimo= "<<mass<<", nella posizione "<<imass<<endl;
+
+      int minp=0, maxn=0;
+      bool trova_positivo=false;
+      bool trova_negativo=false;
+      int i=0;
+      while(trova_positivo==false && i<N){
+          if(v[i]>0){
+             minp=mass;
+             trova_positivo=true;
+          }
+          else
+            i++;
+      }
+       i=0;
+       while(trova_negativo==false && i<N){
+          if(v[i]<0){
+             maxn=mini;
+             trova_negativo=true;
+          }
+          else
+            i++;
+      }
+
+         for (int I=0;I<N;I++){
+                if(v[I]>=0){
+                   if(v[I]<minp)
+                     minp=v[I];
+                }
+                if(v[I]<=0){
+                   if (v[I]>maxn)
+                     maxn=v[I];
+                }
+          }
+
+    if(trova_positivo==false && trova_negativo==true){
+        cout<<"Non hai inserito nessun positivo"<<endl;
+        cout<<"Massimo negativi= "<<maxn<<endl;
+    }
+    else if(trova_negativo==false && trova_positivo==true){
+        cout<<"Non hai inserito nessun negativo"<<endl;
+        cout<<"Minimo positivi= "<<minp<<endl;
+    }
+        else{
+            cout<<endl<<"Minimo positivi= "<<minp<<endl;
+            cout<<endl<<"Massimo negativi= "<<maxn<<endl;
+        }
+    return 0;
+}
