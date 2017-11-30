@@ -1,0 +1,50 @@
+///Caricare un vettore ordinarlo e visualizzarlo. Dentro la funzione di ordinamento c'è lo scambio anch'esso lo metto come funzione.
+#include<iostream>
+#define N 5
+using namespace std;
+
+void carica(int vett1[], int N1);
+void visualizza(int vett1[], int N1);
+void ordina(int vett1[], int N1);
+void scambio(int &x, int &y);
+
+int main(){
+    int v[N],y[N];
+    carica(v,N);
+    cout<<"Il vettore inserito e':"<<endl;
+    visualizza(v,N);
+    ordina(v,N);
+    cout<<"Il vettore ordinato e':"<<endl;
+    visualizza(v,N);
+return 0;
+}
+
+void carica(int vett1[], int N1){
+    cout<<"Carica il vettore:"<<endl;
+       ///caricamento
+       for(int i=0; i<N1; i++){
+        cin>>vett1[i];
+        }
+}
+void visualizza(int vett1[], int N1){
+       for(int i=0; i<N1; i++){
+        cout<<vett1[i]<<" ";
+       }
+    cout<<endl;
+}
+void scambio(int &x, int &y){
+    int temp;
+    temp=y;
+    y=x;
+    x=temp;
+}
+
+void ordina(int vett1[], int N1){
+     for(int j=0; j<N1-1; j++){
+        for(int i=j+1; i<N1; i++){
+              if(vett1[j]>vett1[i]){
+                  scambio(vett1[j],vett1[i]);
+              }
+        }
+    }
+}
