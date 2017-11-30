@@ -1,0 +1,48 @@
+///Carica due vettori della stessa lunghezza e fanne il prodotto scalare
+#include<iostream>
+#define N 5
+using namespace std;
+
+void carica(int vett1[], int N1);
+void visualizza(int vett1[], int N1);
+void somma(int vett1[],int vett2[],int s1[],int N1);
+int prodotto_scalare(int vett1[],int vett2[],int N1);
+
+int main(){
+    int v[N],y[N];
+    int ps;
+
+    carica(v,N);
+    carica(y,N);
+
+    ps=prodotto_scalare(v,y,N);
+    cout<<"Il prodotto scalare tra i due vettori e': "<<ps;
+return 0;
+}
+
+void carica(int vett1[], int N1){
+    cout<<"Carica il vettore:"<<endl;
+       ///caricamento
+       for(int i=0; i<N1; i++){
+        cin>>vett1[i];
+        }
+}
+void visualizza(int vett1[], int N1){
+    cout<<"Il vettore inserito e':"<<endl;
+       for(int i=0; i<N1; i++){
+        cout<<vett1[i]<<" ";
+       }
+    cout<<endl;
+}
+void somma(int vett1[],int vett2[],int s1[],int N1){
+     for(int i=0; i<N1; i++){
+            s1[i]=vett1[i]+vett2[i];
+     }
+}
+int prodotto_scalare(int vett1[],int vett2[],int N1){
+    int p=0;
+    for(int i=0; i<N1; i++){
+        p+=vett1[i]*vett2[i];
+    }
+return p;
+}
