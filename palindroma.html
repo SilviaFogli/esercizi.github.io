@@ -1,0 +1,44 @@
+///Voglio scrivere un vettore di caratteri e poi vedere se la parola inserita è palindroma
+///Ad esempio: Anna, Radar
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main(){
+    int i=0,l=0;
+    bool b=true;
+    char parola[10]; ///è un vettore di dimensione pari a 10-1 perchè un bit è utilizzato per il carattere di terminazione '\0'
+    char parola1[]={'c','i','a','o','\0'}; ///se lo definisco in maniera costante me lo crea di dimensione 5 perchè un carattere è riservato a '\0'
+    cout<<parola1<<endl; ///lo tratta come se fosse una variabile(di solito con ivettori non si può fare)
+
+    cout<<"Scrivi una parola e ti diro' se e' palindroma"<<endl;
+    cin>>parola;
+    do{ l++;
+        i++;
+    }while(parola[i]!='\0');
+
+    cout<<"La parola "<<parola<<" e' lunga "<<l<<endl;
+    i=0;
+    while(b && i<l/2){
+        if(parola[0+i]!=parola[l-1-i]){
+            cout<<"La parola non e' palindroma"<<endl;
+            b=false;
+        }
+            else
+                i++;
+    }
+
+        if(b)
+            cout<<"La parola e' palindroma"<<endl;
+
+
+
+/** parola[0]='X';
+    parola[1]='X';
+    parola[2]='X';
+    parola[3]='\0';
+    cout<<parola;**/
+
+    return 0;
+}
