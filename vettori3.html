@@ -1,0 +1,31 @@
+///Algoritmo di ordinamento di un vettore (ALGORITMO INGENUO)
+#include<iostream>
+#define N 5
+using namespace std;
+
+int main(){
+    int vett[N];
+    int temp;
+    ///caricamento
+    for(int i=0; i<N; i++){
+        cin>>vett[i];
+    }
+
+    for(int j=0; j<N-1; j++){
+
+        for(int i=j+1; i<N; i++){
+              ///scambio
+              if(vett[j]>vett[i]){
+                  temp=vett[i];
+                  vett[i]=vett[j];
+                  vett[j]=temp;
+              }
+        }
+    }
+
+    cout<<"Il vettore ordinato e': ";
+    for(int i=0; i<N; i++){
+    cout<<vett[i]<<" ";
+    }
+    return 0;
+}
